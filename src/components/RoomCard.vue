@@ -1,5 +1,8 @@
 <template>
 <div class="row justify-content-center">
+  <button
+    @click="addForm"
+    class="btn btn-primary">+ Add Room</button>
   <div class="card col-md-3" style="width: 18rem">
     <div class="card-body">
       <h5 class="card-title">Room-1</h5>
@@ -36,7 +39,13 @@
 </template>
 
 <script>
-export default {}
+export default {
+  methods: {
+    addForm () {
+      this.$router.push('/addroom')
+    }
+  }
+}
 </script>
 
 <style>

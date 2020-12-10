@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Login from '../views/Login'
 import Room from '../views/Room'
 import GamePage from '../views/GamePage.vue'
+import CreateRoom from '../views/CreateRoom'
 
 Vue.use(VueRouter)
 
@@ -16,6 +17,11 @@ const routes = [
     path: '/rooms',
     name: 'Room',
     component: Room
+  },
+  {
+    path: '/addroom',
+    name: 'CreateRoom',
+    component: CreateRoom
   },
   {
     path: '/about',

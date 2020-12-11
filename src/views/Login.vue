@@ -8,6 +8,16 @@
         <button class="btn btn-primary mt-3">Submit</button>
       </div>
     </form>
+    <br>
+    <h3 style="font-family: 'Nerko One', cursive;">How to play :</h3>
+    <ul style="list-style: none">
+      <li>Masukkan Username</li>
+      <li>Create / Join Room</li>
+      <li>Persiapkan diri anda</li>
+      <li>Game Start!!!</li>
+      <li>Ketik kata yang tersedia secepat mungkin</li>
+      <li>Pemenang adalah yang berhasil mengetikkan kata tercepat</li>
+    </ul>
   </div>
 </template>
 

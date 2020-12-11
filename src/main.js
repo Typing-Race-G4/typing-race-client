@@ -4,6 +4,9 @@ import router from './router'
 import store from './store'
 import 'bootstrap/dist/css/bootstrap.css'
 import VueSocketIO from 'vue-socket.io'
+import VueSimpleAlert from 'vue-simple-alert'
+
+Vue.use(VueSimpleAlert)
 
 Vue.use(new VueSocketIO({
   debug: true,

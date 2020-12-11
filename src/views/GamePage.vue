@@ -50,7 +50,7 @@ export default {
     sendWord () {
       this.$store.commit('getAnswer', {
         username: localStorage.getItem('username'),
-        word: this.guessedWord,
+        answer: this.guessedWord,
         score: 0 // akan diganti
       })
     }

@@ -22,7 +22,7 @@
         <input
           class="form-control form-control-lg"
           type="text"
-          placeholder="Guess here"
+          placeholder="Type here"
           v-model="guessedWord"
         /><br />
         <button type="submit" class="btn btn-primary" @click.prevent="sendWord">
@@ -52,7 +52,7 @@ export default {
       this.$socket.emit('startGame', this.detail)
     },
     sendWord () {
-      if (this.counter < 5) {
+      if (this.counter <= 5) {
         this.$socket.emit('newAnswer', {
           counter: this.counter,
           username: localStorage.getItem('username'),
@@ -61,6 +61,14 @@ export default {
           word: this.word
         })
         this.guessedWord = ''
+      } else {
+        // this.$fire({
+        //   title: 'Title',
+        //   text: 'text',
+        //   type: 'success',
+        //   timer: 3000
+        // })
+        // this.$alert(type: "success", `the winner is ${localStorage.getItem('username')}`)
       }
     }
   },
@@ -77,6 +85,12 @@ export default {
     },
     finalScore (payload) {
       console.log(payload)
+      this.$fire({
+        title: 'Winner!!!',
+        text: `the winner is ${payload[0].username}`,
+        type: 'success',
+        timer: 3000
+      })
       // Swal.fire(`the winner is ${payload[0].username}`)
     }
   }

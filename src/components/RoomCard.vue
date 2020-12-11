@@ -1,25 +1,30 @@
 <template>
-<div class="row justify-content-center">
-  <button
-    @click="addForm"
-    class="btn btn-primary">+ Add Room</button>
-  <div class="card col-md-3" style="width: 18rem">
-    <div class="card-body">
-      <h5 class="card-title">Room-4</h5>
-      <p class="card-text">Host: Ronal</p>
-      <p class="card-text">0 Joined</p>
-      <button class="btn btn-primary">Start</button>
-    </div>
+  <div class="row justify-content-center">
+    <button @click="add" class="btn btn-primary">+ Add Room</button>
+    <RoomList
+      v-for="(room, i) in rooms"
+      :key="i"
+      :room="room"></RoomList>
   </div>
-</div>
 </template>
 
 <script>
+import RoomList from './RoomList.vue'
 export default {
+  name: 'RoomCard',
+  components: { RoomList },
+  computed: {
+    rooms () {
+      return this.$store.state.rooms
+    }
+  },
   methods: {
-    addForm () {
+    add () {
       this.$router.push('/addroom')
     }
+  },
+  created () {
+    this.$socket.emit('updatedRoom')
   }
 }
 </script>

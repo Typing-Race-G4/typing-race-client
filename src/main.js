@@ -6,8 +6,15 @@ import 'bootstrap/dist/css/bootstrap.css'
 import VueSocketIO from 'vue-socket.io'
 
 Vue.use(new VueSocketIO({
-  connection: 'http://localhost:3000/'
+  debug: true,
+  connection: 'http://localhost:3000',
+  vuex: {
+    store,
+    actionPrefix: 'SOCKET_',
+    mutationPrefix: 'SOCKET_'
+  }
 }))
+
 Vue.config.productionTip = false
 
 new Vue({

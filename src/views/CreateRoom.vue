@@ -1,20 +1,31 @@
 <template>
   <div class="createRoom">
-    <h3>Create Room</h3>
-    <form @submit.prevent="create">
-      <div class="form-group">
-        <label>Room Name</label>
-        <input v-model="name" type="text" class="form-control" />
-        <button class="btn btn-primary mt-3">Submit</button>
-      </div>
-    </form>
-  </div>
+      <h3>Create Room</h3>
+      <form @submit.prevent="createRoom">
+        <div class="form-group">
+          <label>Room Name</label>
+          <input v-model="roomname" type="text" class="form-control" />
+          <button class="btn btn-primary mt-3">Submit</button>
+        </div>
+      </form>
+    </div>
 </template>
 
 <script>
 export default {
+  data () {
+    return {
+      roomname: ''
+    }
+  },
   methods: {
-    create () {
+    createRoom () {
+      const payload = {
+        roomname: this.roomname,
+        admin: localStorage.getItem('username')
+      }
+      this.$socket.emit('createRoom', payload)
+      this.roomname = ''
       this.$router.push('/rooms')
     }
   }

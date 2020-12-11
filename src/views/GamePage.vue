@@ -8,7 +8,7 @@
           :player="player"></GamePlayer>
       </div>
       <div class="col-8">
-        <Gameplay></Gameplay>
+        <Gameplay :detail="detail"></Gameplay>
       </div>
     </div>
   </div>

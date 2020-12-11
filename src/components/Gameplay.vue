@@ -9,16 +9,16 @@
       </h4>
       <button
         class="btn btn-success btn-large"
-        @click.prevent="changeStatus"
+        @click.prevent="getWord"
         v-if="!status && user === detail.admin"
       >
         Start Game</button
       ><br />
-      <h4 style="font-size: 3rem" v-if="status">
-        <span class="badge badge-pill badge-success mr-1">A</span>
+      <h4 style="font-size: 3rem">
+        <span class="badge badge-pill badge-success mr-1" v-for="(letter, i) in word" :key="i">{{letter}}</span>
       </h4>
       <br />
-      <form v-if="status">
+      <form>
         <input
           class="form-control form-control-lg"
           type="text"
@@ -39,26 +39,45 @@ export default {
     return {
       status: false,
       guessedWord: '',
-      detail: '',
-      user: localStorage.getItem('username')
+      detailPage: '',
+      user: localStorage.getItem('username'),
+      word: '',
+      counter: 0
     }
   },
+  props: ['detail'],
   methods: {
-    changeStatus () {
+    getWord () {
       this.status = true
-      localStorage.setItem('status', true)
+      this.$socket.emit('startGame', this.detail)
     },
     sendWord () {
-      this.$store.commit('getAnswer', {
-        username: localStorage.getItem('username'),
-        answer: this.guessedWord,
-        score: 0 // akan diganti
-      })
+      if (this.counter < 5) {
+        this.$socket.emit('newAnswer', {
+          counter: this.counter,
+          username: localStorage.getItem('username'),
+          answer: this.guessedWord,
+          roomname: this.detail.roomname,
+          word: this.word
+        })
+        this.guessedWord = ''
+      }
     }
   },
   created () {
     if (localStorage.getItem('status')) {
       this.status = true
+    }
+  },
+  sockets: {
+    init (payload) {
+      this.word = payload
+      console.log(payload)
+      this.counter++
+    },
+    finalScore (payload) {
+      console.log(payload)
+      // Swal.fire(`the winner is ${payload[0].username}`)
     }
   }
 }

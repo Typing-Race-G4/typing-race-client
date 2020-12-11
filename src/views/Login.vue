@@ -4,7 +4,7 @@
     <form @submit.prevent="add">
       <div class="form-group">
         <label>Name</label>
-        <input v-model="name" type="text" class="form-control" />
+        <input v-model="username" type="text" class="form-control" />
         <button class="btn btn-primary mt-3">Submit</button>
       </div>
     </form>
@@ -13,10 +13,19 @@
 
 <script>
 export default {
+  data () {
+    return {
+      username: ''
+    }
+  },
   methods: {
     add () {
+      localStorage.setItem('username', this.username)
+      this.$socket.emit('login', this.username)
       this.$router.push('/rooms')
     }
+  },
+  sockets: {
   }
 }
 </script>

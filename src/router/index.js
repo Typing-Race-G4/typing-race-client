@@ -32,7 +32,7 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
   },
   {
-    path: '/game',
+    path: '/game/:room',
     name: 'GamePage',
     component: GamePage
   }

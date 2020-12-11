@@ -3,7 +3,11 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import 'bootstrap/dist/css/bootstrap.css'
+import VueSocketIO from 'vue-socket.io'
 
+Vue.use(new VueSocketIO({
+  connection: 'http://localhost:3000/'
+}))
 Vue.config.productionTip = false
 
 new Vue({

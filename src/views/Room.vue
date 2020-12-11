@@ -12,7 +12,6 @@
     </div>
       <div class="row justify-content-center" v-for="(room, i) in rooms" :key="i">
         <button
-          @click="addForm"
           class="btn btn-primary">+ Add Room</button>
         <div class="card col-md-3" style="width: 18rem">
           <div class="card-body">

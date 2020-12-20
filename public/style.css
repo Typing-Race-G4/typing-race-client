@@ -1,0 +1,28 @@
+.form-login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.start {
+  padding: 1px;
+}
+
+.form-control {
+  width: 20px;
+}
+
+.room {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 17em;
+  margin: auto;
+}
+
+.swal2-shown {
+  width: 18rem;
+}
+
+/*# sourceMappingURL=style.css.map */

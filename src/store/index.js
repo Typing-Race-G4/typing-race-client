@@ -7,7 +7,8 @@ export default new Vuex.Store({
   state: {
     answer: null,
     rooms: [],
-    detail: ''
+    detail: '',
+    status: ''
   },
   mutations: {
     getAnswer (state, payload) {
@@ -17,7 +18,10 @@ export default new Vuex.Store({
       state.rooms = payload
     },
     SOCKET_fetchRooms (state, payload) {
-      state.rooms = payload
+      state.rooms = payload.rooms
+      state.status = payload.status
+      console.log(state.status)
+      console.log(typeof (state.status))
     },
     SOCKET_fetchPlayers (state, payload) {
       state.detail = payload

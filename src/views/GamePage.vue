@@ -1,13 +1,13 @@
 <template>
   <div class="container">
-    <div class="row">
-      <div class="col-4">
+    <div class="row game-page">
+      <div class="col-md-4">
         <GamePlayer
           v-for="(player, i) in detail.users"
           :key= "i"
           :player="player"></GamePlayer>
       </div>
-      <div class="col-8">
+      <div class="col-md-4">
         <Gameplay :detail="detail"></Gameplay>
       </div>
     </div>

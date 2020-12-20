@@ -1,5 +1,5 @@
 <template>
-  <div class="row justify-content-center">
+  <div class="row justify-content-center m-0 room-card">
     <button @click="add" class="btn btn-primary">+ Add Room</button>
     <RoomList
       v-for="(room, i) in rooms"

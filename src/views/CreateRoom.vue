@@ -1,6 +1,6 @@
 <template>
   <div class="form-login">
-    <div class="card" style="width: 18rem;">
+    <div class="card card-add-room">
       <div class="card-body">
         <h5 class="card-title">Create Room</h5>
         <form @submit.prevent="createRoom">

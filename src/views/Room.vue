@@ -3,6 +3,7 @@
     <RoomCard></RoomCard>
     <br>
     <button class="btn btn-danger" @click.prevent="logout">Logout</button>
+    <br><br>
   </div>
 </template>
 

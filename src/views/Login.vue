@@ -1,6 +1,6 @@
 <template>
   <div class="form-login">
-    <div class="card" style="width: 18rem;">
+    <div class="card card-login">
       <div class="card-body">
         <h5 class="card-title">Typing Race</h5>
         <form @submit.prevent="add">

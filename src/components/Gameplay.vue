@@ -86,8 +86,17 @@ export default {
       this.status = true
     },
     finalScore (payload) {
-      this.$swal(`the winner is ${payload[0].username} with score: ${payload[0].score}`)
-      this.$router.push('/rooms')
+      if (payload.length > 1) {
+        const temp = []
+        for (let i = 0; i < payload.length; i++) {
+          temp.push(' ' + payload[i].username)
+        }
+        this.$swal(`the winners are${temp} with score: ${payload[0].score}`)
+        this.$router.push('/rooms')
+      } else {
+        this.$swal(`the winner is ${payload[0].username} with score: ${payload[0].score}`)
+        this.$router.push('/rooms')
+      }
     }
   }
 }

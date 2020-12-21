@@ -81,7 +81,6 @@ export default {
   },
   sockets: {
     init (payload) {
-      console.log(payload)
       this.word = payload
       this.status = true
     },

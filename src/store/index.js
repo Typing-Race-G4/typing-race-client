@@ -20,8 +20,6 @@ export default new Vuex.Store({
     SOCKET_fetchRooms (state, payload) {
       state.rooms = payload.rooms
       state.status = payload.status
-      console.log(state.status)
-      console.log(typeof (state.status))
     },
     SOCKET_fetchPlayers (state, payload) {
       state.detail = payload

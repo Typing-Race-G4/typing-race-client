@@ -12,8 +12,8 @@ Vue.use(VueSimpleAlert)
 Vue.use(VueSweetalert2)
 
 Vue.use(new VueSocketIO({
-  debug: true,
-  connection: 'http://localhost:3000',
+  debug: false,
+  connection: 'https://typing-racer-app.herokuapp.com',
   vuex: {
     store,
     actionPrefix: 'SOCKET_',
